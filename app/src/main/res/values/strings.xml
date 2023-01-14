@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">DroidTech</string>
+
+    <string name="et_label_title">技術名</string>
+    <string name="et_label_detail">詳細</string>
+    <string name="et_label_category">カテゴリー</string>
+    <string name="et_label_url1">参照URL1</string>
+    <string name="et_label_url2">参照URL2</string>
+    <string name="et_label_url3">参照URL3</string>
+
+    <string name="btn_insert">追加</string>
+    <string name="btn_update">更新</string>
+
+    <string name="menu_all">全検索</string>
+    <string name="menu_category1">基本</string>
+    <string name="menu_category2">アーキテクチャ</string>
+    <string name="menu_category3">ライブラリ</string>
+    <string name="menu_category4">テスト</string>
+    <string name="menu_category5">その他</string>
+    <string name="menu_delete">削除</string>
+
+    <string name="snackbar_insert">追加しました。</string>
+    <string name="snackbar_update">更新しました。</string>
+    <string name="snackbar_delete">削除しました。</string>
+    <string name="snackbar_input_warning">技術名は必須項目です。</string>
+
+    <string name="dialog_delete_title">削除しますか？</string>
+    <string name="dialog_delete_yes">はい</string>
+    <string name="dialog_delete_no">いいえ</string>
+
+    <string-array name="category_array">
+        <item>Basic</item>
+        <item>Architecture</item>
+        <item>Library</item>
+        <item>Test</item>
+        <item>Else</item>
+    </string-array>
+
+</resources>
