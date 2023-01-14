@@ -14,14 +14,14 @@ interface TechDao {
     fun loadByCategoryTechAndURL(category: String): Flow<List<TechAndURL>>
 
     @Transaction
-    suspend fun insertTechAndURL(tech: Tech,url1 :String?,url2 :String?,url3 :String?) {
+    suspend fun insertTechAndURL(tech: Tech,_url1 :String?,_url2 :String?,_url3 :String?) {
         //技術テーブルに追加
         val techId = insertTech(tech).toInt()
         //重複データの場合、ここでトランザクションを中止し、ロールバック
         //技術テーブルに追加したレコードのIDを元に、URLテーブルに追加
-        val url1 = URL(tech_id = techId, url = url1 ?: "")
-        val url2 = URL(tech_id = techId, url = url2 ?: "")
-        val url3 = URL(tech_id = techId, url = url3 ?: "")
+        val url1 = URL(tech_id = techId, url = _url1 ?: "")
+        val url2 = URL(tech_id = techId, url = _url2 ?: "")
+        val url3 = URL(tech_id = techId, url = _url3 ?: "")
         insertURL(url1)
         insertURL(url2)
         insertURL(url3)
