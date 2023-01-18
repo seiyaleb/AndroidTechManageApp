@@ -1,10 +1,20 @@
 package com.androidtechmanageapp.viewmodel
 
-import androidx.lifecycle.*
-import com.androidtechmanageapp.model.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
+import com.androidtechmanageapp.model.Tech
+import com.androidtechmanageapp.model.TechAndURL
+import com.androidtechmanageapp.model.TechRepository
+import com.androidtechmanageapp.model.URL
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class TechViewModel(private val repository: TechRepository) :ViewModel() {
+@HiltViewModel
+class TechViewModel @Inject constructor(
+    private val repository: TechRepository) :ViewModel() {
 
     //全検索処理はLiveData型の公開プロパティ（初回用）とメソッド（メニュータップ用）として定義
     val allTechAndURL :LiveData<List<TechAndURL>> = repository.allTechAndURL.asLiveData()
@@ -30,15 +40,5 @@ class TechViewModel(private val repository: TechRepository) :ViewModel() {
     //削除処理
     fun deleteTech(tech: Tech) = viewModelScope.launch{
         repository.deleteTechAndURL(tech)
-    }
-}
-
-class TechViewModelFactory(private val repository: TechRepository) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(TechViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return TechViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
