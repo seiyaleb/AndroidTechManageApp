@@ -2,8 +2,9 @@ package com.androidtechmanageapp.model
 
 import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class TechRepository(private val techDao: TechDao) {
+class TechRepository @Inject constructor(private val techDao: TechDao) {
 
     //全検索処理は公開プロパティとして定義
     val allTechAndURL:Flow<List<TechAndURL>> = techDao.loadAllTechAndURL()
