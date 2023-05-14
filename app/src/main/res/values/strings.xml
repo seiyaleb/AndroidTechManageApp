@@ -28,6 +28,8 @@
     <string name="dialog_delete_yes">はい</string>
     <string name="dialog_delete_no">いいえ</string>
 
+    <string name="menu_categories">カテゴリーメニュー</string>
+
     <string-array name="category_array">
         <item>Basic</item>
         <item>Architecture</item>
