@@ -32,6 +32,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -88,7 +89,10 @@ fun DetailToolBar(openDialog: MutableState<Boolean>) {
     TopAppBar(
         title = { Text(stringResource(R.string.app_name)) },
         actions = {
-            IconButton(onClick = { openDialog.value = true }) {
+            IconButton(
+                modifier = Modifier.testTag("delete"),
+                onClick = { openDialog.value = true }
+            ) {
                 Icon(
                     Icons.Default.Delete,
                     contentDescription = stringResource(R.string.menu_delete)
